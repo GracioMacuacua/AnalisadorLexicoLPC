@@ -53,7 +53,7 @@ public class Tela extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        containerbotoes.setBackground(new java.awt.Color(51, 51, 51));
+        containerbotoes.setBackground(new java.awt.Color(33, 34, 40));
 
         lblNovoFicheiro.setForeground(new java.awt.Color(255, 255, 255));
         lblNovoFicheiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_file_60px.png"))); // NOI18N
@@ -94,12 +94,12 @@ public class Tela extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jSplitPane2.setDividerLocation(600);
+        jSplitPane2.setDividerLocation(680);
 
-        jSplitPane3.setDividerLocation(400);
+        jSplitPane3.setDividerLocation(450);
         jSplitPane3.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        textareaCodigo.setBackground(new java.awt.Color(51, 51, 51));
+        textareaCodigo.setBackground(new java.awt.Color(40, 42, 54));
         textareaCodigo.setColumns(20);
         textareaCodigo.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         textareaCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +109,7 @@ public class Tela extends javax.swing.JFrame {
         jSplitPane3.setTopComponent(scrollpaneCodigo);
 
         taErros.setEditable(false);
-        taErros.setBackground(new java.awt.Color(51, 51, 51));
+        taErros.setBackground(new java.awt.Color(52, 55, 70));
         taErros.setColumns(20);
         taErros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         taErros.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,7 +121,7 @@ public class Tela extends javax.swing.JFrame {
 
         jSplitPane2.setLeftComponent(jSplitPane3);
 
-        tabelaTokens.setBackground(new java.awt.Color(51, 51, 51));
+        tabelaTokens.setBackground(new java.awt.Color(33, 34, 44));
         tabelaTokens.setForeground(new java.awt.Color(255, 255, 255));
         tabelaTokens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,10 +156,7 @@ public class Tela extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(containerbotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
@@ -188,7 +185,7 @@ public class Tela extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
