@@ -104,6 +104,7 @@ public class Tela extends javax.swing.JFrame {
         textareaCodigo.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         textareaCodigo.setForeground(new java.awt.Color(255, 255, 255));
         textareaCodigo.setRows(5);
+        textareaCodigo.setTabSize(4);
         scrollpaneCodigo.setViewportView(textareaCodigo);
 
         jSplitPane3.setTopComponent(scrollpaneCodigo);
