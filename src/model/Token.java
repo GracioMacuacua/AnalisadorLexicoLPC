@@ -7,7 +7,7 @@ public class Token {
     private int linhaDoLexema;
 
     public enum Classe {
-        PALAVRA_RESERVADA, IDENTIFICADOR, DELIMITADOR, OPERADOR, NUMERO, INDEFINIDO
+        RESERVED_WORD, IDENTIFIER, SPECIAL_SYMBOL, OPERATOR, NUMBER
     }
 
     public Token(Classe classeDoLexema, String lexema, int linhaDoLexema) {

@@ -9,13 +9,12 @@ import model.Token.Classe;
 public class Gramatica {
 
     private static final List<String> PALAVRAS_RESERVADAS = Arrays.asList("div", "or", "and", "not", "if", "then", "else",
-            "of",
-            "Record", "while", "do", " begin", "end", "read", "write", "var", "array", "function", "procedure",
-            "program", "true", "false", "char", "integer", "boolean", "uses");
+            "of", "while", "do", "begin", "end", "read", "write", "var", "array", "function", "procedure",
+            "program", "true", "false", "char", "integer", "boolean", "real");
 
     private static final List<String> OPERADORES = Arrays.asList("+", "-", "*", "/", ":", "=", "<>", "<", ">", "<=", ">=", ":=");
 
-    private static final List<String> DELIMITADORES = Arrays.asList(",", ";", ".", "(", ")");
+    private static final List<String> SIMBOLOS_ESPECIAIS = Arrays.asList(",", ";", ".", "(", ")");
 
     public static List<Token> verificar(String codigo) {
 
@@ -28,7 +27,7 @@ public class Gramatica {
             char caractereAtual = codigo.charAt(i);
 
             // Ignora espaços em branco e quebras de linha
-            if (caractereAtual == ' ' || caractereAtual == '\r' || caractereAtual == '\t') {
+            if (caractereAtual == ' ') {
                 i++;
                 continue;
             } else if (caractereAtual == '\n') {
@@ -58,9 +57,9 @@ public class Gramatica {
                 String lexema = lexemaBuilder.toString();
 
                 if (PALAVRAS_RESERVADAS.contains(lexema.toLowerCase())) {
-                    listaTokens.add(new Token(Classe.PALAVRA_RESERVADA, lexema, linha));
+                    listaTokens.add(new Token(Classe.RESERVED_WORD, lexema, linha));
                 } else {
-                    listaTokens.add(new Token(Classe.IDENTIFICADOR, lexema, linha));
+                    listaTokens.add(new Token(Classe.IDENTIFIER, lexema, linha));
                 }
             } else if (Character.isDigit(caractereAtual)) {
                 StringBuilder lexemaBuilder = new StringBuilder();
@@ -80,16 +79,16 @@ public class Gramatica {
 
                 String lexema = lexemaBuilder.toString();
 
-                listaTokens.add(new Token(Classe.NUMERO, lexema, linha));
+                listaTokens.add(new Token(Classe.NUMBER, lexema, linha));
             } else if (isOperador(caractereAtual)) {
                 StringBuilder lexemaBuilder = new StringBuilder();
                 lexemaBuilder.append(caractereAtual);
                 i++;
 
-                while(i < tamanho) {
+                while (i < tamanho) {
                     caractereAtual = codigo.charAt(i);
 
-                    if(isOperador(caractereAtual) || caractereAtual == '=') {
+                    if (isOperador(caractereAtual) || caractereAtual == '=') {
                         lexemaBuilder.append(caractereAtual);
                         i++;
                     } else {
@@ -99,18 +98,18 @@ public class Gramatica {
 
                 String lexema = lexemaBuilder.toString();
 
-                if(OPERADORES.contains(lexema)) {
-                    listaTokens.add(new Token(Classe.OPERADOR, lexema, linha));
+                if (OPERADORES.contains(lexema)) {
+                    listaTokens.add(new Token(Classe.OPERATOR, lexema, linha));
                 }
-            } else if(isDelimitador(caractereAtual)) {
+            } else if (isDelimitador(caractereAtual)) {
                 StringBuilder lexemaBuilder = new StringBuilder();
                 lexemaBuilder.append(caractereAtual);
                 i++;
 
-                while(i < tamanho) {
+                while (i < tamanho) {
                     caractereAtual = codigo.charAt(i);
 
-                    if(isDelimitador(caractereAtual)) {
+                    if (isDelimitador(caractereAtual)) {
                         lexemaBuilder.append(caractereAtual);
                         i++;
                     } else {
@@ -120,11 +119,11 @@ public class Gramatica {
 
                 String lexema = lexemaBuilder.toString();
 
-                if(DELIMITADORES.contains(lexema)) {
-                    listaTokens.add(new Token(Classe.DELIMITADOR, lexema, linha));
+                if (SIMBOLOS_ESPECIAIS.contains(lexema)) {
+                    listaTokens.add(new Token(Classe.SPECIAL_SYMBOL, lexema, linha));
                 }
             }
-            
+
             i++;
         }
 
@@ -134,16 +133,18 @@ public class Gramatica {
 
     private static boolean isDelimitador(char arg) {
 
-        if (DELIMITADORES.contains(String.valueOf(arg)))
+        if (SIMBOLOS_ESPECIAIS.contains(String.valueOf(arg))) {
             return true;
+        }
 
         return false;
     }
 
     private static boolean isOperador(char arg) {
 
-        if (OPERADORES.contains(String.valueOf(arg)))
+        if (OPERADORES.contains(String.valueOf(arg))) {
             return true;
+        }
 
         return false;
     }
